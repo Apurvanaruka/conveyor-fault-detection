@@ -1,12 +1,17 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import Form from "./components/Form"
+import Form1 from "./components/Form1"
+import { SignUp ,Login }from "./components/Login"
+import Header from './components/Header'
 
 function App() {
   const [count, setCount] = useState(0)
   return (
     <>
-    <h2 className='text-5xl'>hello</h2>
+      {/* <Header /> */}
+      {/* < Login/> */}
+      {/* <Form /> */}
+      <Form1/>
     </>
   )
 }
