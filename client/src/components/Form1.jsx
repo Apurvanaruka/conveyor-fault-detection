@@ -11,6 +11,7 @@ const Form1 = () => {
 
     // Generate an array of options from 1 to 500
     const pulleyOptions = Array.from({ length: 500 }, (_, index) => (index + 1).toString());
+    console.log(pulleyOptions)
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
