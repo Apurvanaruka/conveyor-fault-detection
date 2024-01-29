@@ -5,15 +5,27 @@ from datetime import datetime
 
 
 st.set_page_config(layout="wide")
-st.title('Poly Pulleys Faults Detection')
+
+# manual_data = st.sidebar.button(label="Manual Enter Values") 
+# image_data = st.sidebar.button(label="Test by Image")
+
+def main():
+    st.title('Poly Pulleys Faults Detection')
+    page = st.sidebar.selectbox("Home", ["Select a Page","Manually Entered Data"])
+
+    if page == "Manually Entered Data":
+        Manual_data()
+    elif page == "Imagery Entered Data":
+        Image_data()
+    # elif page == "Page 2":
+        # page2()
 
 
-col1, col2 = st.columns(2)
 
-manual_data=st.sidebar.button(label="Manual Enter Values")
-image_data=st.sidebar.button(label='upload a image')
+def Manual_data():
 
-if manual_data:
+    col1, col2 = st.columns(2)
+
     with col1:
         pulley_location = st.selectbox(label='Pulley Location',options=['Head Pulley', 'Bend Pulley', 'Tail Pulley'])
         belt_tension = st.slider(label="Belt Tension",min_value=200,max_value=600,step=1)
@@ -29,8 +41,7 @@ if manual_data:
             'Vibration', 'Temperature', 'Acoustic', 'Problem Label'])
 
     with col2:
-
-        if st.button('Predict'):
+        if st.button(label='Predict'):
             prediction = str(preprocessor.preprocess(df)[0])
             if prediction == "Misalignment":
                 st.header("Misalignment")
@@ -54,9 +65,10 @@ if manual_data:
                 st.image('./images/looseblet.webp',width=500)
             else:
                 st.write("Pata nhi")
+    
+def Image_data():
+        st.file_uploader('upload Image')
 
-elif image_data:
-    with col1:
-        file = st.file_uploader(label="upload imaeg of the pulley")
-    with col2:
-        st.write('you result')
+
+if __name__ == "__main__":
+    main()

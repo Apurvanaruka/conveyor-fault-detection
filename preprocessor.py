@@ -1,10 +1,13 @@
 import pickle as pk
-import pandas as pd
+# import streamlit as st
 
+# def load_model():
 scaler =  pk.load(open('./model/scaler.pkl', 'rb'))
 OHE = pk.load(open('./model/OHE.pkl', 'rb'))
 classifier = pk.load(open('./model/classifier.pkl', 'rb'))
+    # return scaler, OHE, classifier
 
+# scaler, OHE, classifier = load_model()
     # pully_location
     # belt_tension
     # Speed
