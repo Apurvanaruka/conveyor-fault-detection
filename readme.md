@@ -35,14 +35,3 @@ Contributing
 If you would like to contribute to this project, please follow these steps:
 
 Fork the repository.
-Create a new branch for your feature or bug fix: git checkout -b feature-name.
-Make your changes and commit them: git commit -m "Description of your changes.".
-Push to the branch: git push origin feature-name.
-Create a pull request.
-License
-This project is licensed under the [License Name] - see the LICENSE.md file for details.
-
-Acknowledgments
-[Optional: Acknowledge any external libraries, resources, or inspiration.]
-Contact
-[Provide your contact information or a way for users to reach out with questions or issues.]
