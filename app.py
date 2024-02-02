@@ -2,16 +2,18 @@ import streamlit as st
 import preprocessor
 import pandas as pd
 from datetime import datetime
+import numpy as np
+from PIL import Image
+
 
 
 st.set_page_config(layout="wide")
 
-# manual_data = st.sidebar.button(label="Manual Enter Values") 
-# image_data = st.sidebar.button(label="Test by Image")
 
 def main():
     st.title('Poly Pulleys Faults Detection')
-    page = st.sidebar.selectbox("Home", ["Select a Page","Manually Entered Data"])
+
+    page = st.sidebar.selectbox("Home", ["Select a Page","Manually Entered Data", "Imagery Entered Data"])
 
     if page == "Manually Entered Data":
         Manual_data()
@@ -67,7 +69,12 @@ def Manual_data():
                 st.write("Pata nhi")
     
 def Image_data():
-        st.file_uploader('upload Image')
+        img_file_buffer = st.file_uploader('Upload a PNG image', type='png')
+        if img_file_buffer is not None:
+            image = Image.open(img_file_buffer)
+            img_array = np.array(image)
+
+            st.image(img_array, caption="Uploaded Image", use_column_width=True)
 
 
 if __name__ == "__main__":
